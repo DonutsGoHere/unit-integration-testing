@@ -38,7 +38,7 @@ describe("Calculator", () => {
     cy.get('#number1').click();
     cy.get('#operator-subtract').click();
     cy.get('#number3').click();
-    cy.get('#operator-equals');
+    cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '1');
   });
 
@@ -49,6 +49,7 @@ describe("Calculator", () => {
     cy.get('#number1').click();
     cy.get('#number0').click();
     cy.get('#number0').click();
+    cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '-1');
   });
 
@@ -61,12 +62,12 @@ describe("Calculator", () => {
   });
 
   it('should be able to display decimal numbers', () => {
-    cy.get('#number0').click();
-    cy.get('#number0').click();
-    cy.get('#operator-multiply').click();
-    cy.get('#number5').click();
+    cy.get('#number1').click();
+    cy.get('#number1').click();
+    cy.get('#operator-divide').click();
+    cy.get('#number2').click();
     cy.get('#operator-equals').click();
-    cy.get('.display').should('contain', '0.25');
+    cy.get('.display').should('contain', '5.5');
   });
 
   it('should be able to display large numbers', () => {
@@ -85,6 +86,7 @@ describe("Calculator", () => {
     cy.get('#number0').click();
     cy.get('#number0').click();
     cy.get('#number0').click();
+    cy.get('#operator-equals').click();
     cy.get('.display').should('contain', '1000000000000');
   });
 
@@ -92,6 +94,7 @@ describe("Calculator", () => {
   it('should be able to display message with unsuitable calculation', () => {
     cy.get('#number8').click();
     cy.get('#operator-divide').click();
+    cy.get('#number0').click();
     cy.get('#operator-equals').click();
     cy.get('.display').should('contain', 'error');
   });
