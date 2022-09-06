@@ -108,21 +108,18 @@ describe('Calculator', () => {
     const button2 = container.getByTestId('number2');
     const button7 = container.getByTestId('number7');
     const button5 = container.getByTestId('number5')
-    const divideButton = container.getByTestId('operator-divide');
+    const addButton = container.getByTestId('operator-divide');
     const timesButton = container.getByTestId('operator-multiply');
     const equalsButton = container.getByTestId('operator-equals');
     const runningTotal = container.getByTestId('running-total');
     const clearButton = container.getByTestId('clear')
-    fireEvent.click(button2);
     fireEvent.click(button1);
-    fireEvent.click(divideButton);
-    fireEvent.click(button7);
     fireEvent.click(timesButton);
-    fireEvent.click(button5)
+    fireEvent.click(button2);
     fireEvent.click(clearButton);
+    fireEvent.click(button5);
     fireEvent.click(equalsButton);
-    expect(runningTotal.textContent).toEqual('3');
-
+    expect(runningTotal.textContent).toEqual('5');
   })
 
 })
